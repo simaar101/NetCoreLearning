@@ -18,6 +18,9 @@ namespace Controllers.Controllers
         [HttpPost]
         public ActionResult<Command> CreateCommand(Command command)
         {
+            command.Id = Guid.NewGuid();
+            command.CreatedDate = DateTime.UtcNow;
+            
             _repo.CreateCommand(command);
             return CreatedAtAction(nameof(GetCommand), new {Id = command.Id}, command);
         }
@@ -47,7 +50,7 @@ namespace Controllers.Controllers
             }
             return Ok(result);
         }
-        
+
         [HttpGet("{id}")]
         public ActionResult<Command> GetCommand(Guid id)
         {
