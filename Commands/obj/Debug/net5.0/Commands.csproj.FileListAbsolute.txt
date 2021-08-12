@@ -27,3 +27,6 @@ C:\Users\Simaar Ahmad\Desktop\Git\NetCoreLearning\Commands\obj\Debug\net5.0\Comm
 C:\Users\Simaar Ahmad\Desktop\Git\NetCoreLearning\Commands\obj\Debug\net5.0\ref\Commands.dll
 C:\Users\Simaar Ahmad\Desktop\Git\NetCoreLearning\Commands\obj\Debug\net5.0\Commands.pdb
 C:\Users\Simaar Ahmad\Desktop\Git\NetCoreLearning\Commands\obj\Debug\net5.0\Commands.genruntimeconfig.cache
+C:\Users\Simaar Ahmad\Desktop\Git\NetCoreLearning\Commands\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Simaar Ahmad\Desktop\Git\NetCoreLearning\Commands\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Simaar Ahmad\Desktop\Git\NetCoreLearning\Commands\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

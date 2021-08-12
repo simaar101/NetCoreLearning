@@ -28,7 +28,9 @@ namespace Commands
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ICommandRepo, CommandRepo>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Commands", Version = "v1" });
