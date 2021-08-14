@@ -14,6 +14,7 @@ namespace Controllers.Controllers
     {
         private readonly ICommandRepo _repo;
         private readonly IMapper _mapper;
+
         public CommandController(ICommandRepo repo, IMapper mapper)
         {
             _repo = repo;
@@ -32,6 +33,7 @@ namespace Controllers.Controllers
                 CreatedDate = DateTime.UtcNow
             };
             _repo.CreateCommand(command);
+            _repo.SaveChanges();
 
             var dto = _mapper.Map<Command,CommandDto>(command);
 
@@ -62,6 +64,7 @@ namespace Controllers.Controllers
             result.Platform = command.Platform;
             result.CommandLine = command.CommandLine;
             _repo.UpdateCommand(result);
+            _repo.SaveChanges();
             return NoContent();
         }
 
@@ -86,6 +89,7 @@ namespace Controllers.Controllers
                 return NotFound();
             }
             _repo.DeleteCommand(id);
+            _repo.SaveChanges();
             return NoContent();
         }
     }

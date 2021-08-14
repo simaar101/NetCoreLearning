@@ -37,5 +37,9 @@ namespace Commands.Repository
             var index = commands.FindIndex(s => s.Id == command.Id);
             commands[index] = command;
         }
+        public bool SaveChanges()
+        {
+            return false;
+        }
     }
 }

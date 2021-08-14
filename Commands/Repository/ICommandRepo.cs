@@ -11,6 +11,6 @@ namespace Commands.Repository
         void UpdateCommand(Command command);
         void CreateCommand(Command command);
         void DeleteCommand(Guid id);
-
+        bool SaveChanges();
     }
 }
