@@ -28,12 +28,13 @@ namespace Commands
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ICommandRepo, CommandRepo>();
+            //services.AddSingleton<ICommandRepo, CommandRepo>();
+   
             services.AddDbContext<CommandContext>(
                 options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CommandConnection"))
             );
-
+            services.AddScoped<ICommandRepo, CommandSqlRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
             

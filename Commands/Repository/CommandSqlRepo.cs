@@ -20,28 +20,28 @@ namespace Commands.Repository
             {
                 throw new ArgumentNullException(nameof(command));
             }
-            _context.Command.Add(command);
+            _context.Commands.Add(command);
         }
 
         public void DeleteCommand(Guid id)
         {
-            var toBeDeleted = _context.Command.Where(s => s.Id == id).SingleOrDefault();
-            _context.Command.Remove(toBeDeleted);
+            var toBeDeleted = _context.Commands.Where(s => s.Id == id).SingleOrDefault();
+            _context.Commands.Remove(toBeDeleted);
         }
 
         public Command GetCommandById(Guid id)
         {
-            return _context.Command.Where(s => s.Id == id).SingleOrDefault();
+            return _context.Commands.Where(s => s.Id == id).SingleOrDefault();
         }
 
         public IEnumerable<Command> GetCommands()
         {
-           return _context.Command.ToList();
+           return _context.Commands.ToList();
         }
 
         public void UpdateCommand(Command command)
         {
-            _context.Command.Update(command);
+            _context.Commands.Update(command);
         }
         public bool SaveChanges()
         {

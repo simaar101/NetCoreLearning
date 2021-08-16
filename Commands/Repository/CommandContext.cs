@@ -10,6 +10,6 @@ namespace Commands.Repository
         {
 
         }
-        public DbSet<Command> Command { get; set;}
+        public DbSet<Command> Commands { get; set;}
     }
 }
