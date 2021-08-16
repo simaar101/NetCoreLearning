@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Commands.Entities;
 using Commands.Dtos;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Commands.Repository
 {
@@ -14,38 +16,48 @@ namespace Commands.Repository
         {
             _context = context;
         }
-        public void CreateCommand(Command command)
+        public async Task CreateCommandAsync(Command command)
         {
             if(command is null)
             {
                 throw new ArgumentNullException(nameof(command));
             }
-            _context.Commands.Add(command);
+           await _context.Commands.AddAsync(command);
+           await _context.SaveChangesAsync();
         }
 
-        public void DeleteCommand(Guid id)
+        public async Task<IEnumerable<Command>> GetCommandsAsync()
         {
-            var toBeDeleted = _context.Commands.Where(s => s.Id == id).SingleOrDefault();
-            _context.Commands.Remove(toBeDeleted);
+             return await _context.Commands.ToListAsync();
         }
 
-        public Command GetCommandById(Guid id)
+        public async Task<Command> GetCommandByIdAsync(Guid id)
         {
-            return _context.Commands.Where(s => s.Id == id).SingleOrDefault();
+            return await _context.Commands.Where(s => s.Id == id).SingleOrDefaultAsync();
         }
 
-        public IEnumerable<Command> GetCommands()
+        public async Task UpdateCommandAsync(Command command)
         {
-           return _context.Commands.ToList();
+            if(command is null)
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
+            try
+            {
+                _context.Update(command);
+                await _context.SaveChangesAsync();
+            }
+            catch(DbUpdateConcurrencyException)
+            {
+                throw;
+            }
         }
 
-        public void UpdateCommand(Command command)
+        public async Task DeleteCommandAsync(Guid id)
         {
-            _context.Commands.Update(command);
-        }
-        public bool SaveChanges()
-        {
-            return (_context.SaveChanges() >= 0);
+            var toBeDeleted = await _context.Commands.FindAsync(id);
+            _context.Remove(toBeDeleted);
+            await _context.SaveChangesAsync();
         }
     }
 }

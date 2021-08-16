@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Commands.Entities;
 
 namespace Commands.Repository
 {
     public interface ICommandRepo
     {
-        IEnumerable<Command> GetCommands();
-        Command GetCommandById(Guid id);
-        void UpdateCommand(Command command);
-        void CreateCommand(Command command);
-        void DeleteCommand(Guid id);
-        bool SaveChanges();
+        Task<IEnumerable<Command>> GetCommandsAsync();
+        Task<Command> GetCommandByIdAsync(Guid id);
+        Task UpdateCommandAsync(Command command);
+        Task CreateCommandAsync(Command command);
+        Task DeleteCommandAsync(Guid id);
     }
 }

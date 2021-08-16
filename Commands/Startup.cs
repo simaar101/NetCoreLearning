@@ -36,7 +36,11 @@ namespace Commands
             );
             services.AddScoped<ICommandRepo, CommandSqlRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddControllers();
+            services.AddControllers(options =>
+               {
+                    options.SuppressAsyncSuffixInActionNames = false ;
+               } 
+            );
             
             services.AddSwaggerGen(c =>
             {

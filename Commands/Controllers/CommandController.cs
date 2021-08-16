@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AutoMapper;
 using Commands.Dtos;
 using Commands.Entities;
@@ -22,7 +23,7 @@ namespace Controllers.Controllers
         }
         
         [HttpPost]
-        public ActionResult<CommandDto> CreateCommand(CreateCommandDto commandDto)
+        public async Task<ActionResult<CommandDto>> CreateCommand(CreateCommandDto commandDto)
         {   
             Command command = new ()
             {
@@ -32,8 +33,7 @@ namespace Controllers.Controllers
                 Platform = commandDto.Platform,
                 CreatedDate = DateTime.UtcNow
             };
-            _repo.CreateCommand(command);
-            _repo.SaveChanges();
+            await _repo.CreateCommandAsync(command);
 
             var dto = _mapper.Map<Command,CommandDto>(command);
 
@@ -41,9 +41,9 @@ namespace Controllers.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<CommandDto> GetCommandById(Guid id)
+        public async Task<ActionResult<CommandDto>> GetCommandById(Guid id)
         {
-            var command = _repo.GetCommandById(id);
+            var command = await _repo.GetCommandByIdAsync(id);
             if(command is null)
             {
                 return NotFound();
@@ -53,9 +53,9 @@ namespace Controllers.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateCommand(Guid id, UpdateCommandDto command)
+        public async Task<ActionResult> UpdateCommand(Guid id, UpdateCommandDto command)
         {
-            var result = _repo.GetCommandById(id);
+            var result = await _repo.GetCommandByIdAsync(id);
             if(result is null)
             {
                 return NotFound();
@@ -63,15 +63,14 @@ namespace Controllers.Controllers
             result.Name = command.Name;
             result.Platform = command.Platform;
             result.CommandLine = command.CommandLine;
-            _repo.UpdateCommand(result);
-            _repo.SaveChanges();
+            await _repo.UpdateCommandAsync(result);
             return NoContent();
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<CommandDto>> GetCommands()
+        public async Task<ActionResult<IEnumerable<CommandDto>>> GetCommands()
         {
-            var result = _repo.GetCommands();
+            var result = await _repo.GetCommandsAsync();
             if(result is null)
             {
                 return NotFound();
@@ -83,13 +82,12 @@ namespace Controllers.Controllers
         [HttpDelete("{id}")]
         public ActionResult DeleteCommand(Guid id)
         {
-            var result = _repo.GetCommandById(id);
+            var result = _repo.GetCommandByIdAsync(id);
             if(result is null)
             {
                 return NotFound();
             }
-            _repo.DeleteCommand(id);
-            _repo.SaveChanges();
+            _repo.DeleteCommandAsync(id);
             return NoContent();
         }
     }
