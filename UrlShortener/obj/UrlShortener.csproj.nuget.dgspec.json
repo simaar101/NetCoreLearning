@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortner\\UrlShortner.csproj": {}
+    "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortner\\UrlShortner.csproj": {
+    "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortner\\UrlShortner.csproj",
-        "projectName": "UrlShortner",
-        "projectPath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortner\\UrlShortner.csproj",
+        "projectUniqueName": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.csproj",
+        "projectName": "UrlShortener",
+        "projectPath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.csproj",
         "packagesPath": "C:\\Users\\Simaar Ahmad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortner\\obj\\",
+        "outputPath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vc0XbYIVnrnLMahIchUq9RD/YrcY+xqAPiTNfe9eg4m+1WdxEwtsw6UczyfjS8lOeGQ4w7Fvc4y4ghCNllkQOw==",
+  "dgSpecHash": "y/bX0zA1zj3nhTvgQOdgnFUxRp2eKPrUatsQ7l2FVLo8mBkc9eU4f8xqLWL+vgJ+J2xRf+XUFEXeF6nYUYO4ew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortner\\UrlShortner.csproj",
+  "projectFilePath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Simaar Ahmad\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Simaar Ahmad\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
