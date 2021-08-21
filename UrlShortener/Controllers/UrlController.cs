@@ -7,20 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 using UrlShortener.Dtos;
 using UrlShortener.Entities;
 using UrlShortener.Repository;
-
+using UrlShortener.Services;
 namespace UrlShortener.Controllers
 {
     [ApiController]
-    [Route("{api/UrlGen}")]
+    [Route("UrlGen")]
     public class UrlController:ControllerBase
     {
         private readonly IUrlRepo _repo;
         public readonly IMapper _mapper;
+        private readonly IUrlGenerator _urlGen;
 
-        public UrlController(IUrlRepo repo, IMapper mapper)
+        public UrlController(IUrlRepo repo, IMapper mapper, IUrlGenerator urlGen)
         {
             _repo = repo;
             _mapper = mapper;
+            _urlGen = urlGen;
         }
         [HttpGet]
        public async Task<ActionResult<IEnumerable<Url>>> GetUrlsAsync()
@@ -72,11 +74,16 @@ namespace UrlShortener.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateUrlAsync(CreateUrlDto urlDto)
         {
+            var shortNameUrlResult = _urlGen.getShortName(urlDto.LongNameUrl);
+            if(shortNameUrlResult is null)
+            {
+                return BadRequest();
+            }
             //this is where u take the longname and covert into short name
             Url url = new ()
             {
                 Id = Guid.NewGuid(),
-                ShortNameUrl = urlDto.ShortNameUrl,
+                ShortNameUrl = shortNameUrlResult,
                 LongNameUrl = urlDto.LongNameUrl,
                 CreatedDate = DateTime.UtcNow
 

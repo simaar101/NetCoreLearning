@@ -16,6 +16,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using UrlShortener.Repository;
+using UrlShortener.Services;
 
 namespace UrlShortener
 {
@@ -40,6 +41,7 @@ namespace UrlShortener
             });
 
             services.AddSingleton<IUrlRepo,UrlMongoDb>();
+            services.AddSingleton<IUrlGenerator,UrlGenerator>();
             services.AddControllers(options=>
             {
                 options.SuppressAsyncSuffixInActionNames = false;
