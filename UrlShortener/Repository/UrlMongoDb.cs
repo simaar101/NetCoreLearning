@@ -47,5 +47,14 @@ namespace UrlShortener.Repository
             };
             await urlCollection.ReplaceOneAsync(s=> s.Id == url.Id, url);
         }
+        public async Task<Url> GetUrlByHashAsync(string hashFunction)
+        {
+            if(String.IsNullOrEmpty(hashFunction))
+            {
+                throw new ArgumentNullException(nameof(hashFunction));
+            }
+            var resultUrl = await urlCollection.Find<Url>(s=> s.HashFunction == hashFunction).SingleOrDefaultAsync();
+            return resultUrl;
+        }
     }
 }

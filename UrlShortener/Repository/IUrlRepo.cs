@@ -13,5 +13,6 @@ namespace UrlShortener.Repository
         Task DeleteUrlAsync(Guid id);
         Task CreateUrlAsync(Url url);
         Task UpdateUrlAsync(Url url);
+        Task<Url> GetUrlByHashAsync(string hashFunction);
     }
 }

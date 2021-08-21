@@ -11,7 +11,7 @@ using UrlShortener.Services;
 namespace UrlShortener.Controllers
 {
     [ApiController]
-    [Route("UrlGen")]
+    [Route("Url")]
     public class UrlController:ControllerBase
     {
         private readonly IUrlRepo _repo;
@@ -34,7 +34,7 @@ namespace UrlShortener.Controllers
             }
             return Ok(_mapper.Map<IEnumerable<Url>, IEnumerable<UrlDto>>(result));
         }
-        // Url GetUrl(Guid id);
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Url>> GetUrlAsync(Guid id)
         {
@@ -74,23 +74,37 @@ namespace UrlShortener.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateUrlAsync(CreateUrlDto urlDto)
         {
-            var shortNameUrlResult = _urlGen.getShortName(urlDto.LongNameUrl);
-            if(shortNameUrlResult is null)
+            var hashResult = _urlGen.GetHashFunction(urlDto.LongNameUrl);
+            if(hashResult is null)
             {
-                return BadRequest();
+                return BadRequest(urlDto);
             }
+            string curUrl = "https://localhost:5001/UrlGen/";
             //this is where u take the longname and covert into short name
             Url url = new ()
             {
                 Id = Guid.NewGuid(),
-                ShortNameUrl = shortNameUrlResult,
+                ShortNameUrl = curUrl+hashResult,
                 LongNameUrl = urlDto.LongNameUrl,
+                HashFunction = hashResult,
                 CreatedDate = DateTime.UtcNow
 
             };
             await _repo.CreateUrlAsync(url);
             var dto = _mapper.Map<Url, UrlDto>(url);
             return CreatedAtAction(nameof(GetUrlAsync), new { id = dto.Id}, dto);
+        }
+
+        [Route("[action]/{hash}")]
+        [HttpGet]
+        public async Task<ActionResult> GetLongUrlByHash(string hash)
+        {
+            var resultUrl = await _repo.GetUrlByHashAsync(hash);
+            if(resultUrl is null)
+            {
+                return NotFound();
+            }
+            return Redirect(resultUrl.LongNameUrl);
         }
     }
 } 
