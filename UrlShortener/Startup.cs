@@ -11,6 +11,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Driver;
+using UrlShortener.Repository;
 
 namespace UrlShortener
 {
@@ -26,8 +31,20 @@ namespace UrlShortener
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
 
-            services.AddControllers();
+            services.AddSingleton<IMongoClient>(ServiceProvider=>
+            {
+                return new MongoClient(Configuration.GetConnectionString("UrlConnectionString"));
+            });
+
+            services.AddSingleton<IUrlRepo,UrlMongoDb>();
+            services.AddControllers(options=>
+            {
+                options.SuppressAsyncSuffixInActionNames = false;
+            });
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UrlShortener", Version = "v1" });
