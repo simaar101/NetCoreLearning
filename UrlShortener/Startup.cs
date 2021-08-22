@@ -16,7 +16,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using UrlShortener.Repository;
-using UrlShortener.Services;
+using UrlShortener.Logic;
 
 namespace UrlShortener
 {

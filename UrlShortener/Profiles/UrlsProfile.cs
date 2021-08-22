@@ -1,5 +1,5 @@
 using AutoMapper;
-using UrlShortener.Entities;
+using UrlShortener.Models;
 using UrlShortener.Dtos;
 
 

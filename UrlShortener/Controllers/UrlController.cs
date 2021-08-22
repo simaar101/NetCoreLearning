@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using UrlShortener.Dtos;
-using UrlShortener.Entities;
+using UrlShortener.Models;
 using UrlShortener.Repository;
-using UrlShortener.Services;
+using UrlShortener.Logic;
 namespace UrlShortener.Controllers
 {
     [ApiController]

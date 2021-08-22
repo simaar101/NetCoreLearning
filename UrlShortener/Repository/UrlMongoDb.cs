@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
-using UrlShortener.Entities;
+using UrlShortener.Models;
 
 namespace UrlShortener.Repository
 {
@@ -30,7 +30,7 @@ namespace UrlShortener.Repository
         }
 
         public async Task<Url> GetUrlAsync(Guid id)
-        {
+        {       
             return await urlCollection.Find<Url>(s=>s.Id == id).SingleOrDefaultAsync();
         }
 

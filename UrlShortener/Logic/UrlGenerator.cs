@@ -3,7 +3,7 @@ using UrlShortener;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace UrlShortener.Services
+namespace UrlShortener.Logic
 {
     public class UrlGenerator : IUrlGenerator
     {      

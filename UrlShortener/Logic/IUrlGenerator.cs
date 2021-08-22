@@ -1,4 +1,4 @@
-namespace UrlShortener.Services
+namespace UrlShortener.Logic
 {
     public interface IUrlGenerator
     {

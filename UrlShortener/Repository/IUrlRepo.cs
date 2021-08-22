@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UrlShortener.Entities;
+using UrlShortener.Models;
 
 namespace UrlShortener.Repository
 {

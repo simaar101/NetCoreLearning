@@ -1,6 +1,6 @@
 using System;
 
-namespace UrlShortener.Entities
+namespace UrlShortener.Models
 {
     public class Url
     {
