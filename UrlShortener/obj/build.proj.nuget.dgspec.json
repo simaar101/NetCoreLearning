@@ -1,0 +1,45 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\build.proj": {}
+  },
+  "projects": {
+    "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\build.proj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\build.proj",
+        "projectName": "build",
+        "projectPath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\build.proj",
+        "packagesPath": "C:\\Users\\Simaar Ahmad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Simaar Ahmad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net45"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "targetAlias": "net45",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net45": {
+          "targetAlias": "net45",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
