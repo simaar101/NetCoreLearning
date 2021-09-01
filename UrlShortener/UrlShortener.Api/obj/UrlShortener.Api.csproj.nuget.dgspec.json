@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\UrlShortener.Api.csproj": {}
+    "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\UrlShortener.Api.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\UrlShortener.Api.csproj": {
+    "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\UrlShortener.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\UrlShortener.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\UrlShortener.Api.csproj",
         "projectName": "UrlShortener.Api",
-        "projectPath": "c:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\UrlShortener.Api.csproj",
+        "projectPath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\UrlShortener.Api.csproj",
         "packagesPath": "C:\\Users\\Simaar Ahmad\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\obj\\",
+        "outputPath": "C:\\Users\\Simaar Ahmad\\Desktop\\Git\\NetCoreLearning\\UrlShortener\\UrlShortener.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

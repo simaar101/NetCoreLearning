@@ -34,7 +34,8 @@ namespace UrlShortener.Api.Controllers
             {
                 return NotFound();
             }
-            return Ok(_mapper.Map<IEnumerable<Url>, IEnumerable<UrlDto>>(result));
+            // return _mapper.Map<IEnumerable<UrlDto>>(result).ToList();
+            return Ok(_mapper.Map<IEnumerable<UrlDto>>(result));
         }
         
         [HttpGet("{id}")]
@@ -94,7 +95,7 @@ namespace UrlShortener.Api.Controllers
 
             };
             await _repo.CreateUrlAsync(url);
-            var dto = _mapper.Map<Url, UrlDto>(url);
+            var dto = _mapper.Map<UrlDto>(url);
             return CreatedAtAction(nameof(GetUrlAsync), new { id = dto.Id}, dto);
         }
 
